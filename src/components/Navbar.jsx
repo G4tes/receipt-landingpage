@@ -87,7 +87,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className=" py-2 flex items-center">
+    <div className=" py-2 flex items-center max-w-7xl mx-auto">
       <div>
         <img
           src="https://www.masakapahariini.com/wp-content/themes/mahi_revamp/assets/img/masakapahariini-logo.svg"
@@ -139,10 +139,10 @@ const Navbar = () => {
         </form>
       </div>
       <div className="flex items-center justify-end gap-2 mx-auto">
-        <p className="font-bold text-[20px] cursor-pointer hover:text-green-500 ">
+        <p className="font-bold text-[18px] cursor-pointer hover:text-green-500 ">
           Favorit
         </p>
-        <p className="font-bold text-[20px] cursor-pointer hover:text-green-500 ml-6">
+        <p className="font-bold text-[18px] cursor-pointer hover:text-green-500 ml-6">
           Masuk
         </p>
         <div className="flex items-center">
