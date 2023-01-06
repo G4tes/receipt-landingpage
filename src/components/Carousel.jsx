@@ -26,7 +26,7 @@ const Carousel = () => {
     },
   ];
   return (
-    <div className="mx-auto my-8 max-w-6xl  ">
+    <div className="mx-auto mt-[7.5rem] max-w-6xl pt-12">
       <div className=" w-full">
         <Swiper
           breakpoints={{

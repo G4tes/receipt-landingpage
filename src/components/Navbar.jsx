@@ -87,7 +87,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className=" py-2 flex items-center max-w-7xl mx-auto">
+    <div className=" py-2 flex items-center max-w-7xl mx-auto  ">
       <div>
         <img
           src="https://www.masakapahariini.com/wp-content/themes/mahi_revamp/assets/img/masakapahariini-logo.svg"
