@@ -57,7 +57,7 @@ const ResepTerbaru = () => {
                     alt=""
                     className="rounded-2xl group-hover:ease-in-out group-hover:scale-110 transition duration-500"
                   />
-                  <p className="font-bold w-[90%] pt-2 group-hover:ease-in-out group-hover:scale-110 transition duration-500 group-hover:mt-2">
+                  <p className="font-bold w-[90%] pt-2 group-hover:ease-in-out group-hover:scale-110 transition duration-500 group-hover:mt-2 group-hover:text-green-500">
                     {title}
                   </p>
                 </div>
@@ -70,7 +70,7 @@ const ResepTerbaru = () => {
                 alt=""
                 className="rounded-2xl group-hover:ease-in-out group-hover:scale-110 transition duration-500"
               />
-              <p className="font-bold w-[90%] pt-2 group-hover:ease-in-out group-hover:scale-110 transition duration-500 group-hover:mt-2">
+              <p className="font-bold w-[90%] pt-2 group-hover:ease-in-out group-hover:scale-110 transition duration-500 group-hover:mt-2 group-hover:text-green-500">
                 {title}
               </p>
             </div>
