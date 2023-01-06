@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar";
 import Carousel from "./components/Carousel";
 import Kategori from "./components/Kategori";
+import ResepTerbaru from "./components/ResepTerbaru";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <div className="mx-24 ">
           <Carousel />
           <Kategori />
+          <ResepTerbaru />
         </div>
       </div>
     </div>
