@@ -2,7 +2,7 @@ import React from "react";
 import newsletter from "./assets/newsletter.jpg";
 const Promotion = () => {
   return (
-    <div className="mx-auto my-8 max-w-6xl h-screen">
+    <div className="mx-auto mt-12 max-w-6xl h-72">
       <div className="flex flex-row border rounded-2xl bg-white">
         <div className="flex">
           <img src={newsletter} alt="" />

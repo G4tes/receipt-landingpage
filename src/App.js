@@ -4,6 +4,7 @@ import Kategori from "./components/Kategori";
 import ResepTerbaru from "./components/ResepTerbaru";
 import ArtikelTerbaru from "./components/ArtikelTerbaru";
 import Promotion from "./components/Promotion";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -22,6 +23,10 @@ function App() {
           <ArtikelTerbaru />
           <Promotion />
         </div>
+      </div>
+
+      <div className="bg-[#ff4800]">
+        <Footer />
       </div>
     </div>
   );
