@@ -3,6 +3,7 @@ import Carousel from "./components/Carousel";
 import Kategori from "./components/Kategori";
 import ResepTerbaru from "./components/ResepTerbaru";
 import ArtikelTerbaru from "./components/ArtikelTerbaru";
+import Promotion from "./components/Promotion";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Kategori />
           <ResepTerbaru />
           <ArtikelTerbaru />
+          <Promotion />
         </div>
       </div>
     </div>
