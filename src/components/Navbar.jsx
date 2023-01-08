@@ -1,6 +1,7 @@
 import React from "react";
 import Menu from "./Navbar/Menu";
 import { BsFillPersonFill } from "react-icons/bs";
+import ModalLogin from "./ModalLogin";
 const Navbar = () => {
   const loyang = [
     {
@@ -96,8 +97,8 @@ const Navbar = () => {
         />
       </div>
       <div className="mx-8 flex items-center">
-        {loyang.map(({ menuTitle, menuItems }) => (
-          <div className="">
+        {loyang.map(({ menuTitle, menuItems }, id) => (
+          <div className="" key={id}>
             <Menu menuTitle={menuTitle} menuItems={menuItems} />
           </div>
         ))}
@@ -142,9 +143,14 @@ const Navbar = () => {
         <p className="font-bold text-[18px] cursor-pointer hover:text-green-500 ">
           Favorit
         </p>
-        <p className="font-bold text-[18px] cursor-pointer hover:text-green-500 ml-6">
+
+        <label
+          htmlFor="my-modal-4"
+          className="font-bold text-[18px] cursor-pointer hover:text-green-500 ml-6"
+        >
           Masuk
-        </p>
+        </label>
+        <ModalLogin />
         <div className="flex items-center">
           <BsFillPersonFill
             className="fill-green-600 cursor-pointer"

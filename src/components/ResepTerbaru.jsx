@@ -49,7 +49,7 @@ const ResepTerbaru = () => {
       <div className="grid grid-cols-3">
         {makanan.map(({ id, title, src }) =>
           !readMore ? (
-            <div className="">
+            <div className="" key={id}>
               {id <= 3 && (
                 <div className="p-5 group">
                   <img
@@ -64,7 +64,7 @@ const ResepTerbaru = () => {
               )}
             </div>
           ) : (
-            <div className="p-5 group">
+            <div className="p-5 group" key={id}>
               <img
                 src={src}
                 alt=""
