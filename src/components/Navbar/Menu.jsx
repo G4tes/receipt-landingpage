@@ -17,10 +17,12 @@ const Menu = ({ menuTitle, menuItems }) => {
         </div>
         <div className=" hidden group-hover:block">
           <div className="absolute top-[4.6rem] px-2 w-[15%] z-10">
-            <div className="border bg-green-500 rounded-xl text-white font-bold px-2 py-3 ">
+            <div className="border bg-green-500 rounded-xl text-white font-bold  py-3 ">
               {menuItems.map(({ title }) => (
                 <div className="">
-                  <p className="cursor-pointer hover:bg-green-600">{title}</p>
+                  <p className="cursor-pointer hover:bg-green-600 px-2">
+                    {title}
+                  </p>
                 </div>
               ))}
             </div>
