@@ -1,5 +1,7 @@
-import React from "react";
+import { React, useState } from "react";
+import { useNavigate } from "react-router";
 import Menu from "./Navbar/Menu";
+import { Link, NavLink } from "react-router-dom";
 import { BsFillPersonFill } from "react-icons/bs";
 import ModalLogin from "./ModalLogin";
 const Navbar = () => {
@@ -86,15 +88,22 @@ const Navbar = () => {
       ],
     },
   ];
+  const navigate = useNavigate();
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    navigate("/favorit");
+  };
   return (
     <div className=" py-2 flex items-center max-w-7xl mx-auto  ">
       <div>
-        <img
-          src="https://www.masakapahariini.com/wp-content/themes/mahi_revamp/assets/img/masakapahariini-logo.svg"
-          className="h-[104px] w-[104px]"
-          alt=""
-        />
+        <Link to="/">
+          <img
+            src="https://www.masakapahariini.com/wp-content/themes/mahi_revamp/assets/img/masakapahariini-logo.svg"
+            className="h-[104px] w-[104px]"
+            alt=""
+          />
+        </Link>
       </div>
       <div className="mx-8 flex items-center">
         {loyang.map(({ menuTitle, menuItems }, id) => (
@@ -141,7 +150,9 @@ const Navbar = () => {
       </div>
       <div className="flex items-center justify-end gap-2 mx-auto">
         <p className="font-bold text-[18px] cursor-pointer hover:text-green-500 ">
-          Favorit
+          <Link to="/favorit" onClick={handleClick}>
+            Favorit
+          </Link>
         </p>
 
         <label
