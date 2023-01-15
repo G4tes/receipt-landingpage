@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Daftar from "./components/Route/Daftar";
 import Beranda from "./components/Route/Beranda";
 import Favorit from "./components/Route/Favorit";
-import Absolute from "./components/Absolute";
+// import Absolute from "./components/Absolute";
 function App() {
   return (
     <BrowserRouter>
