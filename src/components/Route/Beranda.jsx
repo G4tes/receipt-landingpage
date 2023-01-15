@@ -9,7 +9,7 @@ import Footer from "../../components/Footer";
 
 function Beranda() {
   return (
-    <div className="h-screen">
+    <div className="h-screen ">
       <div className="bg-white  dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
         <div className="  ">
           <Navbar />
