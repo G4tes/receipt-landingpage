@@ -1,4 +1,4 @@
-import { React, useEffect, useState, useCallback } from "react";
+import { React, useEffect, useState } from "react";
 import { IoAlertOutline } from "react-icons/io5";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import PasswordValidator from "password-validator";
@@ -49,28 +49,15 @@ const Register = () => {
     }
   }, [PasswordID, RepeatPasswordId]);
 
-  const handleShow = useCallback(
-    (e, id) => {
-      e.preventDefault();
-
-      setEyeOpen(() => {
-        return [true, id];
-      });
-      console.log(EyeOpen);
-    },
-    [EyeOpen]
-  );
-
-  const handleHide = useCallback(
-    (e, id) => {
-      e.preventDefault();
-      setEyeOpen(() => {
-        return [false, id];
-      });
-      console.log(EyeOpen);
-    },
-    [EyeOpen]
-  );
+  // useEffect(() => {
+  //   setEyeOpen(!EyeOpen[0]);
+  // }, [EyeOpen]);
+  // const handleShow = useCallback((index) => {
+  //   setEyeOpen((prevShow) => {
+  //     prevShow[index] = !prevShow[index];
+  //     return [...prevShow];
+  //   });
+  // }, []);
 
   const listform = [
     {
@@ -135,25 +122,32 @@ const Register = () => {
               <div className="flex justify-center">
                 <div className="form-control w-full max-w-sm ">
                   <input
-                    type={EyeOpen[1] == id && EyeOpen[0] ? "text" : type}
+                    type={EyeOpen[1]?.id == id && EyeOpen[0] ? "text" : type}
                     id={id_input}
                     className="  bg-[#f2f2f2] border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-3 focus:outline-none focus:ring-black focus:ring-1 focus:border-transparent "
                     placeholder={placeholder}
-                    onChange={type == "password" ? handleInputPassword : null}
+                    onChange={type == "password" && handleInputPassword}
                   />
                   {type == "password" && (
                     <div className="flex justify-end mr-3">
-                      {EyeOpen[0] && EyeOpen[1] == id ? (
-                        <AiOutlineEyeInvisible
-                          className="absolute bottom-3 w-6 h-6 "
-                          key={id}
-                          onClick={(e) => handleHide(e, id)}
-                        />
-                      ) : (
+                      {EyeOpen[0] && EyeOpen[1].id == id ? (
                         <AiOutlineEye
                           className="absolute bottom-3 w-6 h-6 "
                           key={id}
-                          onClick={(e) => handleShow(e, id)}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setEyeOpen([!EyeOpen[0], { id }]);
+                          }}
+                        />
+                      ) : (
+                        <AiOutlineEyeInvisible
+                          className="absolute bottom-3 w-6 h-6 "
+                          key={id}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setEyeOpen([!EyeOpen[0], { id }]);
+                            console.log(id);
+                          }}
                         />
                       )}
                     </div>
