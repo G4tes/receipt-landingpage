@@ -27,6 +27,7 @@ const Register = () => {
   const [CheckPassowrd, setCheckPassowrd] = useState([]);
   const [PasswordSame, setPasswordSame] = useState(false);
   const [EyeOpen, setEyeOpen] = useState(false, 1);
+  const [Checked, setChecked] = useState(false);
   const handleInputPassword = (e) => {
     e.preventDefault();
     if (e.target.id == "passwordsandi") {
@@ -209,6 +210,53 @@ const Register = () => {
               </p>
             </div>
           )}
+        </div>
+        <div className=" mx-[11rem] mt-8 ">
+          <hr className="border-gray-300" />
+          <div className="mt-4">
+            <div className="flex items-center">
+              <input
+                type="checkbox"
+                checked={Checked ? "checked" : ""}
+                className="checkbox"
+                onClick={(e) => {
+                  setChecked(!Checked);
+                }}
+              />
+              <p className="m-4 w-[85%]">
+                Ya, Saya ingin menerima info menarik dari Masak Apa Hari Ini dan
+                brand Unilever lainnya melalui email, pesan singkat, dan iklan
+                online yang disesuaikan dengan minat saya.
+              </p>
+            </div>
+            <div className="mx-9">
+              <p>
+                Mohon pelajari{" "}
+                <span className="underline text-green-600">
+                  Pemberitahuan Privasi{" "}
+                </span>
+                dan{" "}
+                <span className="underline text-green-600">
+                  Pemberitahuan Cookie{" "}
+                </span>
+                untuk mengetahui bagaimana kami menggunakan data Anda.
+              </p>
+            </div>
+            <div className="mx-9 my-4">
+              <p>Saya menyatakan bahwa saya berusia di atas 18 tahun.</p>
+            </div>
+            <div className="flex justify-center mt-12">
+              <div className="btn  px-56 bg-green-500 hover:bg-green-500">
+                Daftar
+              </div>
+            </div>
+            <div className="flex justify-center mt-4">
+              <p className="font-semibold">
+                Sudah punya akun?{" "}
+                <span className="underline text-green-500">Masuk</span>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
