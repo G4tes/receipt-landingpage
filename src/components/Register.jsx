@@ -1,4 +1,6 @@
-import { React, useEffect, useState } from "react";
+import { React, useEffect, useState, useCallback } from "react";
+import { IoAlertOutline } from "react-icons/io5";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import PasswordValidator from "password-validator";
 const Register = () => {
   const schema = new PasswordValidator();
@@ -24,6 +26,7 @@ const Register = () => {
   const [RepeatPasswordId, setRepeatPasswordId] = useState("");
   const [CheckPassowrd, setCheckPassowrd] = useState([]);
   const [PasswordSame, setPasswordSame] = useState(false);
+  const [EyeOpen, setEyeOpen] = useState(false, 1);
   const handleInputPassword = (e) => {
     e.preventDefault();
     if (e.target.id == "passwordsandi") {
@@ -45,6 +48,29 @@ const Register = () => {
       setPasswordSame(false);
     }
   }, [PasswordID, RepeatPasswordId]);
+
+  const handleShow = useCallback(
+    (e, id) => {
+      e.preventDefault();
+
+      setEyeOpen(() => {
+        return [true, id];
+      });
+      console.log(EyeOpen);
+    },
+    [EyeOpen]
+  );
+
+  const handleHide = useCallback(
+    (e, id) => {
+      e.preventDefault();
+      setEyeOpen(() => {
+        return [false, id];
+      });
+      console.log(EyeOpen);
+    },
+    [EyeOpen]
+  );
 
   const listform = [
     {
@@ -98,23 +124,40 @@ const Register = () => {
         <div className="text-center font-bold text-3xl">
           <p> Gabung bersama komunitas MAH!!</p>
         </div>
-        <div className="grid grid-cols-2 mt-8  mx-40">
+        <div className="grid grid-cols-2 mt-8  mx-40 relative">
           {listform.map(({ id, label, placeholder, id_input, type }) => (
-            <div key={id} className="mt-4">
-              <div className="mx-4">
-                <label className="label">
-                  <span className="label-text  font-semibold ">{label}</span>
+            <div key={id} className="mt-4 ">
+              <div className="mx-4 ">
+                <label className="label " key={id}>
+                  <span className="label-text font-semibold ">{label}</span>
                 </label>
               </div>
               <div className="flex justify-center">
-                <div className="form-control w-full max-w-sm">
+                <div className="form-control w-full max-w-sm ">
                   <input
-                    type={type}
+                    type={EyeOpen[1] == id && EyeOpen[0] ? "text" : type}
                     id={id_input}
                     className="  bg-[#f2f2f2] border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-3 focus:outline-none focus:ring-black focus:ring-1 focus:border-transparent "
                     placeholder={placeholder}
-                    onChange={type == "password" && handleInputPassword}
+                    onChange={type == "password" ? handleInputPassword : null}
                   />
+                  {type == "password" && (
+                    <div className="flex justify-end mr-3">
+                      {EyeOpen[0] && EyeOpen[1] == id ? (
+                        <AiOutlineEyeInvisible
+                          className="absolute bottom-3 w-6 h-6 "
+                          key={id}
+                          onClick={(e) => handleHide(e, id)}
+                        />
+                      ) : (
+                        <AiOutlineEye
+                          className="absolute bottom-3 w-6 h-6 "
+                          key={id}
+                          onClick={(e) => handleShow(e, id)}
+                        />
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -124,32 +167,47 @@ const Register = () => {
           {CheckPassowrd.map((item, id) => (
             <div key={id + 1}>
               {item == "min" && (
-                <p className="text-xs font-semibold text-red-500">
-                  Kata sandi harus mengandung setidaknya 8 karakter
-                </p>
+                <div className="flex justify-start">
+                  <IoAlertOutline className="text-red-500" />
+                  <p className="text-xs font-semibold text-red-500">
+                    Kata sandi harus mengandung setidaknya 8 karakter
+                  </p>
+                </div>
               )}
               {item == "uppercase" && (
-                <p className="text-xs font-semibold text-red-500">
-                  Kata sandi harus mengandung setidaknya 1 huruf besar
-                </p>
+                <div className="flex justify-start">
+                  <IoAlertOutline className="text-red-500" />
+                  <p className="text-xs font-semibold text-red-500">
+                    Kata sandi harus mengandung setidaknya 1 huruf besar
+                  </p>
+                </div>
               )}
 
               {item == "digits" && (
-                <p className="text-xs font-semibold text-red-500">
-                  Kata sandi harus mengandung setidaknya 1 angka.
-                </p>
+                <div className="flex justify-start">
+                  <IoAlertOutline className="text-red-500" />
+                  <p className="text-xs font-semibold text-red-500">
+                    Kata sandi harus mengandung setidaknya 1 angka.
+                  </p>
+                </div>
               )}
               {item == "spaces" && (
-                <p className="text-xs font-semibold text-red-500">
-                  Kata sandi tidak boleh menggunakan spasi
-                </p>
+                <div className="flex justify-start">
+                  <IoAlertOutline className="text-red-500" />
+                  <p className="text-xs font-semibold text-red-500">
+                    Kata sandi tidak boleh menggunakan spasi
+                  </p>
+                </div>
               )}
             </div>
           ))}
           {!PasswordSame && (
-            <p className="text-xs font-semibold text-red-500">
-              Kata sandi harus sama.
-            </p>
+            <div className="flex justify-start">
+              <IoAlertOutline className="text-red-500" />
+              <p className="text-xs font-semibold text-red-500">
+                Kata sandi harus sama.
+              </p>
+            </div>
           )}
         </div>
       </div>
