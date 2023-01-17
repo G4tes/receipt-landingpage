@@ -8,16 +8,16 @@ const NavbarMobile = () => {
 
   return (
     <div
-      className={`h-screen ${
+      className={`h-screen w-full ${
         ListOpen ? "overflow-x-scroll" : "overflow-hidden"
       }  bg-white`}
     >
-      <div className="h-20 bg-white fixed top-0 left-0 border-b-2 border-gray-200 w-full  -mt-4" />
+      <div className="h-20 bg-white fixed top-0 left-0 border-b-2 border-gray-200 w-full  -mt-4 " />
       <div className={`${ListOpen[0] ? "" : "h-[75%]"}`}>
         <div className="pt-24 ">
           {loyang.map(({ menuItems, menuTitle }, no) => (
             <div className="">
-              <div key={no} className="flex items-center w-full mx-4 p-4 ">
+              <div key={no} className="flex items-center  p-4 ">
                 <div className="w-[80%]">
                   <p className="text-2xl font-bold">{menuTitle}</p>
                 </div>
@@ -46,7 +46,7 @@ const NavbarMobile = () => {
                   ? menuItems.map(({ title }, no) => (
                       <div>
                         <ul>
-                          <li className="text-xl ml-12 py-2 font-bold hover:text-green-600">
+                          <li className="text-xl ml-8 py-2 font-bold hover:text-green-600">
                             {title}
                           </li>
                         </ul>
@@ -57,13 +57,13 @@ const NavbarMobile = () => {
             </div>
           ))}
         </div>
-        <hr className="border-gray-300 mx-8 mt-2 mb-4" />
+        <hr className="border-gray-300 mx-4 mt-2 mb-4" />
         <div className="flex justify-center ">
           <button className="btn w-[80%] bg-green-600 hover:bg-green-600">
             <p className="font-bold">Masuk/Daftar</p>
           </button>
         </div>
-        <hr className="border-gray-300 mx-8 mt-4 mb-6" />
+        <hr className="border-gray-300 mx-4 mt-4 mb-6" />
       </div>
       <div className="bg-white h-[40%]  pt-4">
         <div className="mx-8 ">
