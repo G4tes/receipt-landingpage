@@ -1,11 +1,13 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import ModalLoginEmail from "./ModalLoginEmail";
+import { Link, NavLink } from "react-router-dom";
 import { useNavigate } from "react-router";
 const ModalLogin = ({ modalOpen }) => {
   // const [thisModal, setThisModal] = useState(modalOpen);
   // const [closeModal, setCloseModal] = useState(false);
   // const [thisModalEmail, setThisModalEmail] = useState(false);
   const navigate = useNavigate();
+
   const handleClick = (e) => {
     e.preventDefault();
     navigate("/register");
@@ -32,9 +34,7 @@ const ModalLogin = ({ modalOpen }) => {
               </div>
             </label>
             <div className="text-center text-[14px] font-semibold border border-gray-500 shadow-md py-2 my-3">
-              <button className=" " onClick={handleClick}>
-                Buat akun baru
-              </button>
+              <a href="/register">Buat akun baru</a>
             </div>
             <hr className="border-t-gray-400 shadow-sm mt-8" />
           </div>
